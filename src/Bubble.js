@@ -4,9 +4,7 @@ class Bubble extends Component {
     state = {
         color:{r:250,g:0,b:188},
         bubbles: [
-        {id: 0.46591639466024026, content: "a", x: 188, y: 804},
-        {id: 0.5064425877085477, content: "b", x: 1102, y: 453},
-        {id: 0.50644253877085477, content: "b", x: 1102, y: 453}
+
         ]
     }
     handleChange = (e) => {
@@ -49,6 +47,21 @@ class Bubble extends Component {
         }
     
     handleClick = (e) => {
+        let targ = e.target;
+        if(targ.className == "grow") {
+
+            var arr1 = [...this.state.bubbles];
+
+            var bubbles2 = arr1.filter(checkId);
+            this.setState({
+                bubbles:bubbles2
+                })
+            function checkId(id) {
+                return id.id != targ.lastChild.id
+            }
+            return
+        }
+
         var color = this.state.color;
         let bubble = {id: Math.random(), content:'', x:e.pageX, y:e.pageY, color:this.props.colour};
     
@@ -57,6 +70,7 @@ class Bubble extends Component {
         this.setState({
         bubbles
         })
+
     }
     
     render() {
