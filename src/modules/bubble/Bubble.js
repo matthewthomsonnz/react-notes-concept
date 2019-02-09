@@ -42,39 +42,39 @@ class Bubble extends Component {
         }
     
     handleClick = (e) => {
-        
-
-        // if(e.currentTarget.className == "grow") {
-        //     e.target.classList.remove("grow")
-        //     let prevBubblesState = [...this.state.bubbles];
-            
-        //     let bubbles2 = prevBubblesState.filter(checkId);
-        //     setTimeout((e)=>{
-        //         this.setState({
-        //             bubbles:bubbles2
-        //          })
-        //     },200)
-        //     function checkId(id) {
-        //         return id.id != e.target.lastChild.id
-        //     }
-        //     return    
-        // }
-
+        if (e.target.className == "bubbles") {
         let color = this.state.color;
         let bubble = {id: Math.random(), content:'', x:e.pageX, y:e.pageY, color:this.props.colour};
-    
         let bubbles = [...this.state.bubbles, bubble];
-    
         this.setState({
         bubbles
         })
+    }
+    }
 
+    bubbleClick = (e) => {
+        e.preventDefault()
+            e.currentTarget.classList.remove("grow")
+            let prevBubblesState = [...this.state.bubbles];
+            
+            let bubbles2 = prevBubblesState.filter(checkId);
+            setTimeout((e)=>{
+                this.setState({
+                    bubbles:bubbles2
+                 })
+            },200)
+            function checkId(id) {
+                return id.id != e.target.lastChild.id
+            }
+
+
+        console.log("bubble clicked")
     }
     
     render() {
         return (
         <div className="bubbles" onClick={this.handleClick}>
-            <Bubbles bubbles={this.state.bubbles} handleChange={this.handleChange} />
+            <Bubbles bubbles={this.state.bubbles} handleChange={this.handleChange} bubbleClick={this.bubbleClick}/>
         </div>
         )
     }
