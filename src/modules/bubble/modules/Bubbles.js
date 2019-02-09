@@ -18,7 +18,7 @@ const Bubbles = ({bubbles, handleChange}) => {
             {BubbleList}
         </div>
     )
-    }
+}
     
 
 

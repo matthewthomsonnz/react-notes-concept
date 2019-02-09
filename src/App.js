@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import Bubble from './Bubble';
-import Colour from './Colour';
+import './styles/App.css';
+import Bubble from './modules/bubble/Bubble';
+import Colour from './modules/colour/Colour';
 
 class App extends Component {
   componentWillMount() {
     this.setState({
-      colour: this.randomRGB()
+      colour: this.randomCSSColour()
     }) 
   }
   componentDidMount() {
@@ -17,22 +17,23 @@ class App extends Component {
   }
   handleClick = (e) => {
     this.setState({
-      colour: this.randomRGB()
+      colour: this.randomCSSColour()
     })   
-    e.target.style.background = this.state.colour
+    e.target.style.backgroundColor = this.state.colour
+    e.target.classList.remove('bounce');
   }
   updateColorChanger = function(){
-    document.getElementById('colour').style.background = this.state.colour
+    document.getElementById('colour').firstChild.style.backgroundColor = this.state.colour
   }
-  randomRGB = function(){
-    var test = function() {return Math.floor(Math.random() * 255) + 0;}
-    return "rgb("+test()+","+test()+","+test()+")"
+  randomCSSColour = () => {
+    const byte = () => Math.floor(Math.random() * 255);
+    return `rgb(${byte()},${byte()},${byte()})`;
   }
   render() {
     return (
       <div className="App">
         <Bubble colour={this.state.colour}></Bubble>
-        <Colour random={this.randomRGB()} handleClick={this.handleClick}></Colour>
+        <Colour handleClick={this.handleClick}></Colour>
       </div>
     );
   }

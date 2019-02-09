@@ -1,0 +1,118 @@
+*{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+  height: 10000px;
+  position: relative;
+ 
+}
+
+.bubbles {
+  height: 100%;
+  min-width: 10000px;
+}
+
+.bubble {
+  width: 0px; height: 0px;
+  position: absolute;
+}
+
+.bubble > div {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(0);
+  opacity: 0;
+  width: 250px;
+  height: 250px;
+  background: rgba(255,0,255,0.8);
+  display: block;
+  transition: transform 1000ms cubic-bezier(0.000, 0.985, 0.450, 0.995), opacity 200ms ease; /* custom */
+  overflow: visible;
+  border-radius: 999px;
+}
+
+.bubble > div.grow {
+  transform: translateY(-50%) translateX(-50%) scale(1);
+  border-radius: 999px;
+  opacity: 1;
+}
+
+.bubble > div > input {
+  position: absolute;
+  opacity: 0;
+  top:-10vh;
+  width: 0;
+}
+
+.bubble > div > p {
+  letter-spacing: -1px;  
+  position: absolute;
+  top: 50%; left: 50%;
+  color: white;
+  font-size: 30px;
+  margin: 0;
+  transform: translateY(-50%) translateX(-50%) scale(1);
+  width: 210px;
+  max-height: 210px;
+  overflow: initial;
+  word-wrap: break-word;
+  line-height: 35.1px;
+}
+
+#colour {
+  position: fixed;
+
+  padding: 40px;
+   right: 0px; 
+  bottom: 0px;
+
+}
+
+#colour > div {
+  border-radius: 999px; 
+  
+  cursor: pointer;
+  transform-origin: 25% 25%;
+  padding: 15px;
+  perspective: 100px;
+
+  box-shadow: 0px 0px 150px 4px rgba(255,255,255,1);
+  width: 4vh; height: 4vh;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.bounce {
+  animation-name: bounce-7;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bounce-7 {
+  0%   { transform: scale(1,1)      translateY(0); }
+  5%  { transform: scale(1.1,.9)   translateY(0); }
+  15%  { transform: scale(.9,1.1)   translateY(-100px); }
+  25%  { transform: scale(1.05,.95) translateY(0); }
+  26%  { transform: scale(1,1)      translateY(-7px); }
+  32%  { transform: scale(1,1)      translateY(0); }
+  50% { transform: scale(1,1)      translateY(0); }
+}
