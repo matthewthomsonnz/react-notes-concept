@@ -37,8 +37,6 @@ class Bubble extends Component {
             newestInput.select();
             newestInput.parentNode.classList.add('grow');
         }
-        
-
         }
     
     handleClick = (e) => {
@@ -66,9 +64,6 @@ class Bubble extends Component {
             function checkId(id) {
                 return id.id != e.target.lastChild.id
             }
-
-
-        console.log("bubble clicked")
     }
     
     render() {

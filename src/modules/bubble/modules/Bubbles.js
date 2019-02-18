@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Bubbles = ({bubbles, handleChange, bubbleClick}) => {
-    const BubbleList = bubbles.map(
+    const BubbleList =  bubbles.length ? bubbles.map(
         bubble => {
         return(
         <div key={bubble.id} className="bubble" style={{top: bubble.y + 'px',left: bubble.x + 'px'}}>
@@ -11,7 +11,9 @@ const Bubbles = ({bubbles, handleChange, bubbleClick}) => {
             </div>
         </div> 
         )
-    })
+    }) : (
+        <p className="center">Click to get started</p>
+    )
     
     return (
         <div>
