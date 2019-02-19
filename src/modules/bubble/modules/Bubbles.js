@@ -12,7 +12,7 @@ const Bubbles = ({bubbles, handleChange, bubbleClick}) => {
         </div> 
         )
     }) : (
-        <p className="center">Click to get started</p>
+        <p className="message">Click to get started</p>
     )
     
     return (
@@ -22,6 +22,4 @@ const Bubbles = ({bubbles, handleChange, bubbleClick}) => {
     )
 }
     
-
-
     export default Bubbles;

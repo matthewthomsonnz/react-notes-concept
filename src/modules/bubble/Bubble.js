@@ -19,7 +19,7 @@ class Bubble extends Component {
             ) || eachPrevBubble
         );
         this.setState({
-        bubbles
+            bubbles
         })    
     }
     
@@ -37,7 +37,7 @@ class Bubble extends Component {
             newestInput.select();
             newestInput.parentNode.classList.add('grow');
         }
-        }
+    }
     
     handleClick = (e) => {
         if (e.target.className == "bubbles") {
@@ -45,25 +45,21 @@ class Bubble extends Component {
         let bubble = {id: Math.random(), content:'', x:e.pageX, y:e.pageY, color:this.props.colour};
         let bubbles = [...this.state.bubbles, bubble];
         this.setState({
-        bubbles
+            bubbles
         })
+        }
     }
-    }
-
     bubbleClick = (e) => {
         e.preventDefault()
-            e.currentTarget.classList.remove("grow")
-            let prevBubblesState = [...this.state.bubbles];
-            
-            let bubbles2 = prevBubblesState.filter(checkId);
-            setTimeout((e)=>{
-                this.setState({
-                    bubbles:bubbles2
-                 })
-            },200)
-            function checkId(id) {
-                return id.id != e.target.lastChild.id
-            }
+        e.currentTarget.classList.remove("grow")
+        let prevBubblesState = [...this.state.bubbles];
+        let bubbles2 = prevBubblesState.filter(checkId);
+        this.setState({
+            bubbles:bubbles2
+        })
+        function checkId(id) {
+            return id.id != e.target.lastChild.id
+        }
     }
     
     render() {
