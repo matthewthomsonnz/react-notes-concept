@@ -1,6 +1,6 @@
 # Unique note taking app
 
-Exercise I used to learn React - my own experimental take on a note taking app
+Exercise to learn React - my own experimental take on a note taking app
 
 # How to use
 
