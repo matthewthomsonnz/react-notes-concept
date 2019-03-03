@@ -12,7 +12,7 @@ const Bubbles = ({bubbles, handleChange, bubbleClick}) => {
         </div> 
         )
     }) : (
-        <p className="message">Click to get started</p>
+        <p className="message">Click somewhere then start typing</p>
     )
     
     return (
