@@ -1,9 +1,5 @@
 [Live demo](https://matthewthomsonnz.github.io/react-simple-bubble-app/)
 
-# Unique note taking app
-
-Exercise to learn React - my own experimental take on a note taking app
-
 ## How to use
 
 1. Click somewhere
