@@ -1,4 +1,4 @@
-#[Live demo](https://matthewthomsonnz.github.io/react-simple-bubble-app/)
+# [Live demo](https://matthewthomsonnz.github.io/react-simple-bubble-app/)
 
 ## How to use
 
